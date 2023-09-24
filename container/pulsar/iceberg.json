@@ -21,6 +21,7 @@
         "hive.s3.aws-secret-key": "e09eFuJeEFwevzW3Kyk72yYqJg40MqKDNJBGimCu",
         "hive.s3.ssl.enabled": false,
         "catalogProperties":{
+            "uri": "jdbc:postgresql://wl-postgresql.postgresql:5432/iceberg_catalog",
             "warehouse":"s3a://warehouse",
             "catalog-impl":"hiveCatalog"
         }
