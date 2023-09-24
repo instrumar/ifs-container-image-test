@@ -7,8 +7,8 @@
   "parallelism": 1,
   "configs": {
     "format": "parquet",
-    "catalog": "hadoop",
-    "catalog-impl": "org.apache.iceberg.hadoop.HadoopCatalog",
+    "catalog": "hive",
+    "catalog-impl": "org.apache.iceberg.hive.HiveCatalog",
     "warehouse-location": "s3a://warehouse",
     "table-name": "test_iceberg_table",
     "s3a.access.key": "ddFlmMzcBK8je5y2TCn1",
