@@ -3,7 +3,7 @@
   "namespace": "default",
   "name": "iceberg-test-sink",
   "inputs": ["public/default/test-iceberg-pulsar"],
-  "archive": "connectors/pulsar-io-iceberg-0.1.0.nar",
+  "archive": "connectors/pulsar-io-lakehouse-3.1.0.3.nar",
   "parallelism": 1,
   "configs": {
     "format": "parquet",
