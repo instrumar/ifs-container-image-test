@@ -1,29 +1,19 @@
 {
-    "tenant":"unifiyadkinville",
-    "namespace":"ifs",
-    "name":"ifs_iceberg_sink",
-    "parallelism":2,
-    "inputs": [
-      "FiberSensorData"
-    ],
-    "archive": "connectors/pulsar-io-lakehouse-3.1.0.3.nar",
-    "processingGuarantees":"EFFECTIVELY_ONCE",
-    "configs":{
-        "type":"iceberg",
-        "maxCommitInterval":120,
-        "maxRecordsPerCommit":10000000,
-        "catalogName":"test_v1",
-        "tableNamespace":"iceberg_sink_test",
-        "tableName":"ice_sink_person",
-        "hive.s3.endpoint": "http://wl-minio.minio.svc.cluster.local:9000",
-        "hive.s3.path-style-access": true,
-        "hive.s3.aws-access-key": "ddFlmMzcBK8je5y2TCn1",
-        "hive.s3.aws-secret-key": "e09eFuJeEFwevzW3Kyk72yYqJg40MqKDNJBGimCu",
-        "hive.s3.ssl.enabled": false,
-        "catalogProperties":{
-            "uri": "jdbc:postgresql://wl-postgresql.postgresql:5432/iceberg_catalog",
-            "warehouse":"s3a://warehouse",
-            "catalog-impl":"hiveCatalog"
-        }
-    }
+  "tenant": "public",
+  "namespace": "default",
+  "name": "iceberg-test-sink",
+  "inputs": ["public/default/test-iceberg-pulsar"],
+  "archive": "connectors/pulsar-io-iceberg-0.1.0.nar",
+  "parallelism": 1,
+  "configs": {
+    "format": "parquet",
+    "catalog": "hadoop",
+    "catalog-impl": "org.apache.iceberg.hadoop.HadoopCatalog",
+    "warehouse-location": "s3a://test-dev-us-west-2/lakehouse/iceberg_sink",
+    "table-name": "test_iceberg_table",
+    "s3a.access.key": "<your-minio-access-key>",
+    "s3a.secret.key": "<your-minio-secret-key>",
+    "s3a.endpoint": "<your-minio-endpoint>",
+    "s3a.path.style.access": true
+  }
 }
