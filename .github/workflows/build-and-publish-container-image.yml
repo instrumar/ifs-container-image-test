@@ -14,8 +14,8 @@ jobs:
         container:
           # - name: jupyterhub
           #   tag: 0.3.8
-          # - name: pulsar
-          #   tag: 0.31.9
+          - name: pulsar
+            tag: 0.31.10
           # - name: superset
           #   tag: 0.2.210
           # - name: trino
