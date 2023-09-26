@@ -16,7 +16,7 @@
         "tableNamespace":"iceberg_sink_test",
         "tableName":"ice_sink_person",
         "catalogProperties":{
-            "warehouse":"s3a://warehouse/iceberg",
+            "warehouse":"s3a://warehouse",
             "catalog-impl":"hiveCatalog"
         }
     }
