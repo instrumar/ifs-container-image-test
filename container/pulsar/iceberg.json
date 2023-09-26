@@ -18,6 +18,7 @@
         "catalogProperties":{
             "uri":"thrift://hive-metastore-service.hive:9083",
             "warehouse":"s3a://warehouse",
+            "cache-enabled": false,
             "catalog-impl":"hiveCatalog"
         }
     }
