@@ -21,7 +21,7 @@ jobs:
           # - name: trino
           #   tag: 0.2.368
           - name: hive_metastore
-            tag: 0.0.9
+            tag: 0.0.10
 
     steps:
       - name: Checkout repository
