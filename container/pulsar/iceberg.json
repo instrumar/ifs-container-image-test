@@ -16,6 +16,7 @@
         "tableNamespace":"iceberg_sink_test",
         "tableName":"ice_sink_person",
         "catalogProperties":{
+            "uri":"thrift://hive-metastore-service.hive:9083",
             "warehouse":"s3a://warehouse",
             "catalog-impl":"hiveCatalog"
         }
