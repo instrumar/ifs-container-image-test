@@ -44,6 +44,9 @@ COPY ./entrypoint.sh /entrypoint.sh
 RUN groupadd -r hive --gid=1000 && \
     useradd -r -g hive --uid=1000 -d ${HIVE_HOME} hive && \
     chown hive:hive -R ${HIVE_HOME}
+    chown hive:hive -R ${HIVE_HOME} && \
+    chown hive:hive /entrypoint.sh && chmod +x /entrypoint.sh && \
+    chown -R hive:hive /opt && chmod -R 755 /opt
 
 
 # Switch to the 'hive' user
