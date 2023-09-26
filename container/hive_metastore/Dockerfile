@@ -32,8 +32,8 @@ RUN groupadd -r hive --gid=1000 && \
     chown hive:hive -R ${HIVE_HOME} && \
     chown hive:hive /entrypoint.sh && chmod +x /entrypoint.sh
 
-RUN chown -R hive:hive /opt && \
-    chmod -R 755 /opt \
+RUN chown -R hive:hive /opt
+RUN chmod -R 755 /opt
 
 USER hive
 EXPOSE 9083
