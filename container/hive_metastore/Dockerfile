@@ -32,8 +32,8 @@ COPY --from=builder ${HIVE_HOME} ${HIVE_HOME}
 COPY --from=builder ${HADOOP_HOME} ${HADOOP_HOME}
 
 # Copy the configuration and entrypoint script into the image
-COPY /conf/conf.xml ${HIVE_HOME}/conf/metastore-site.xml
-COPY /entrypoint.sh /entrypoint.sh
+COPY ./conf.xml ${HIVE_HOME}/conf/metastore-site.xml
+COPY ./entrypoint.sh /entrypoint.sh
 
 # Create a user for Hive, set permissions and expose the required port
 RUN groupadd -r hive --gid=1000 && \
