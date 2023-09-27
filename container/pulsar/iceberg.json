@@ -10,7 +10,7 @@
     "processingGuarantees":"EFFECTIVELY_ONCE",
     "configs":{
         "type":"iceberg",
-        "maxCommitInterval":120,
+        "maxCommitInterval":60,
         "maxRecordsPerCommit":60000,
         "catalogName":"test_v1",
         "tableNamespace":"iceberg_sink_test",
