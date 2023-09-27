@@ -6,7 +6,7 @@
     "inputs": [
       "persistent://unifiyadkinville/ifs/fibersensordata"
     ],
-    "archive": "connectors/pulsar-io-lakehouse-3.1.0.3.nar",
+    "archive": "connectors/pulsar-io-lakehouse-3.1.0.4-cloud.nar",
     "processingGuarantees":"EFFECTIVELY_ONCE",
     "configs":{
         "type":"iceberg",
