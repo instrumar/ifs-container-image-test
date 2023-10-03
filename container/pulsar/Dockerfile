@@ -1,6 +1,7 @@
 # Use a simple base for downloading and setting permissions
 FROM alpine as downloader
 ADD https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v3.1.0.4/pulsar-io-lakehouse-3.1.0.4-cloud.nar /tmp/pulsar-io-lakehouse-3.1.0.4-cloud.nar
+ADD https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v3.1.0.4/pulsar-io-lakehouse-3.1.0.4.nar /tmp/pulsar-io-lakehouse-3.1.0.4.nar
 RUN chmod 644 /tmp/pulsar-io-lakehouse-3.1.0.4-cloud.nar
 
 # Use the Pulsar image
