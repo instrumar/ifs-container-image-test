@@ -2,7 +2,7 @@
     "tenant":"unifiyadkinville",
     "namespace":"ifs",
     "name":"icerberg_sink",
-    "parallelism":1,
+    "parallelism":2,
     "inputs": [
       "persistent://unifiyadkinville/ifs/fibersensordata"
     ],
