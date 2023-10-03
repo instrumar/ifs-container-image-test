@@ -6,6 +6,7 @@ RUN chmod 644 /tmp/pulsar-io-lakehouse-3.1.0.4-cloud.nar
 # Use the Pulsar image
 FROM apachepulsar/pulsar-all:3.1.0
 COPY --from=downloader /tmp/pulsar-io-lakehouse-3.1.0.4-cloud.nar /pulsar/connectors/pulsar-io-lakehouse-3.1.0.4-cloud.nar
+COPY --from=downloader /tmp/pulsar-io-lakehouse-3.1.0.4.nar /pulsar/connectors/pulsar-io-lakehouse-3.1.0.4.nar
 
 # Continue with the rest of your Dockerfile...
 COPY ./iceberg.json /pulsar/connectors/iceberg.json
