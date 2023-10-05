@@ -18,7 +18,7 @@
         "catalogProperties":{
             "uri":"thrift://hive-metastore-service.hive:9083",
             "warehouse":"s3a://warehouse/iceberg",
-            "catalog-impl":"hadoopCatalog"
+            "catalog-impl":"hiveCatalog"
         }
     }
 }
