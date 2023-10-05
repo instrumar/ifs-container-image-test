@@ -14,6 +14,8 @@ RUN chmod 644 /tmp/iceberg-hive-runtime-0.13.2.jar
 FROM apachepulsar/pulsar-all:3.1.0
 COPY --from=downloader /tmp/pulsar-io-lakehouse-3.1.0.4-cloud.nar /pulsar/connectors/pulsar-io-lakehouse-3.1.0.4-cloud.nar
 COPY --from=downloader /tmp/pulsar-io-lakehouse-3.1.0.4.nar /pulsar/connectors/pulsar-io-lakehouse-3.1.0.4.nar
+COPY --from=downloader /tmp/hive-metastore-3.1.2.jar /pulsar/connectors/hive-metastore-3.1.2.jar
+COPY --from=downloader /tmp/iceberg-hive-runtime-0.13.2.jar /pulsar/connectors/iceberg-hive-runtime-0.13.2.jar
 COPY --from=downloader /tmp/hive-metastore-3.1.2.jar /pulsar/lib/hive-metastore-3.1.2.jar
 COPY --from=downloader /tmp/iceberg-hive-runtime-0.13.2.jar /pulsar/lib/iceberg-hive-runtime-0.13.2.jar
 
