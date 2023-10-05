@@ -15,7 +15,7 @@ jobs:
           # - name: jupyterhub
           #   tag: 0.3.8
           - name: pulsar
-            tag: 0.31.25
+            tag: 0.31.26
           # - name: superset
           #   tag: 0.2.210
           # - name: trino
