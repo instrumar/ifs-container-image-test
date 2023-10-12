@@ -12,18 +12,19 @@ jobs:
     strategy:
       matrix:
         container:
-          - name: jupyterhub
-            tag: 0.3.8
+          # - name: jupyterhub
+          #   tag: 0.3.8
           - name: pulsar
-            tag: 0.31.9
-          - name: superset
-            tag: 0.2.210
-          - name: trino
-            tag: 0.2.368
+            tag: 0.31.27
+          # - name: superset
+          #   tag: 0.2.210
+          # - name: trino
+          #   tag: 0.2.368
           - name: hive_metastore
             tag: 0.0.6
           - name: pulsar_dag
             tag: 0.0.1
+            tag: 0.0.16
 
     steps:
       - name: Checkout repository

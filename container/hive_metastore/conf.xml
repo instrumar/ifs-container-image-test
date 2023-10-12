@@ -6,15 +6,16 @@
     </property>
     <property>
         <name>metastore.task.threads.always</name>
-        <value>org.apache.hadoop.hive.metastore.events.EventCleanerTask,org.apache.hadoop.hive.metastore.MaterializationsCacheCleanerTask</value>
+        <value>org.apache.hadoop.hive.metastore.events.EventCleanerTask</value>
     </property>
     <property>
         <name>metastore.expression.proxy</name>
         <value>org.apache.hadoop.hive.metastore.DefaultPartitionExpressionProxy</value>
     </property>
+
     <property>
         <name>metastore.warehouse.dir</name>
-        <value>s3a://warehouse</value>
+        <value>s3a://warehouse/hive</value>
     </property>
     <property>
         <name>javax.jdo.option.ConnectionDriverName</name>
@@ -38,11 +39,11 @@
 
     <property>
         <name>fs.s3a.access.key</name>
-        <value>ddFlmMzcBK8je5y2TCn1</value>
+        <value>0eG7zMTUx33i43laCoh6</value>
     </property>
     <property>
         <name>fs.s3a.secret.key</name>
-        <value>e09eFuJeEFwevzW3Kyk72yYqJg40MqKDNJBGimCu</value>
+        <value>rqzRbNQhtb2GNMPEkVE7rz2Z7q7pD8ziNKIgdfsq</value>
     </property>
     <property>
         <name>fs.s3a.endpoint</name>
@@ -50,6 +51,23 @@
     </property>
     <property>
         <name>fs.s3a.path.style.access</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>fs.s3a.connection.ssl.enabled</name>
+        <value>false</value>
+    </property>
+
+    <property>
+        <name>fs.defaultFS</name>
+        <value>s3a://warehouse</value>
+    </property>
+    <property>
+        <name>fs.s3a.impl</name>
+        <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+    </property>
+    <property>
+        <name>fs.s3a.fast.upload</name>
         <value>true</value>
     </property>
 
