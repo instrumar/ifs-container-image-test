@@ -2,7 +2,7 @@ import pulsar
 import time
 
 # Pulsar configuration
-pulsar_service_url = 'pulsar://10.16.2.29:6650'
+pulsar_service_url = 'pulsar://10.16.2.28:6650'
 input_topic = 'persistent://unifiyadkinville/ifs/fibersensordata'
 output_topic = 'persistent://unifiyadkinville/ifs/output'
 
