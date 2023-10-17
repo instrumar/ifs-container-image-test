@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         container:
-          # - name: jupyterhub
-          #   tag: 0.3.8
+          - name: jupyterhub
+            tag: 0.3.9
           - name: pulsar
             tag: 0.31.27
           # - name: superset
