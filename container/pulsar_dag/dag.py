@@ -1,5 +1,6 @@
 import pulsar
 import time
+import pickle
 
 # Pulsar configuration
 pulsar_service_url = 'pulsar://10.16.2.28:6650'
@@ -9,41 +10,43 @@ output_topic = 'persistent://unifiyadkinville/ifs/output'
 # Initialize Pulsar client
 client = pulsar.Client(pulsar_service_url)
 
-# Create producers and consumers for the input and output topics
-consumer = client.subscribe(input_topic, subscription_name='subscribe_2', consumer_type=pulsar.ConsumerType.Exclusive)
+# Create consumers
+consumer = client.subscribe(input_topic, subscription_name='subscribe_1', consumer_type=pulsar.ConsumerType.Exclusive)
+
+# Create a producer
 producer = client.create_producer(output_topic)
 
-last_msg_id = None
+# Variable to store the last processed message ID in memory
+last_message_id = None
 
 while True:
-    try:
-        # If we've received messages before, start consuming from the last message ID
-        if last_msg_id:
-            print("consuming messages based on last message id")
-            msg = consumer.receive(start_message_id=last_msg_id, timeout_millis=5000)
-        else:
-            print("consuming messages without last message id")
-            msg = consumer.receive(timeout_millis=5000)
+    messages = []
+    message_ids = []
+    start_time = time.time()
+    
+    while time.time() - start_time < 30 and len(messages) < 100000:
+        try:
+            msg = consumer.receive(timeout_millis=100)
+            messages.append(msg.data())
+            message_ids.append(msg.message_id())
+        except Exception as e:
+            print(e)
+            pass
 
-        print(msg)
+    # Serialize the batch of messages into a single payload (as bytes)
+    batch_payload = pickle.dumps(messages)
 
-        payload = msg.data()
-        producer.send(payload)
-        
-        # Acknowledge the message and store its ID
-        consumer.acknowledge(msg)
-        last_msg_id = msg.message_id()
-        
-        print(f"Received message from {input_topic} and sent it to {output_topic}: {payload.decode('utf-8')}")
-    except pulsar.exceptions.Timeout:
-        # No message received in the timeout period
-        pass
-    except Exception as e:
-        print(f"Error: {str(e)}")
+    # Send the serialized batched payload
+    producer.send(batch_payload)
+    
+    # Acknowledge the last message of the batch and update the last_message_id
+    if message_ids:
+        last_message_id = message_ids[-1]
+        consumer.acknowledge(last_message_id)
+    
+    print(f"Processed {len(messages)} messages.")
 
-    time.sleep(30)
-
-# Clean up when the task is stopped (not reached in this example)
+# Clean up
 consumer.close()
 producer.close()
 client.close()
