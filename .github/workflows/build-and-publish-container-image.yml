@@ -23,7 +23,7 @@ jobs:
           - name: hive_metastore
             tag: 0.0.16
           - name: pulsar_dag
-            tag: 0.0.3
+            tag: 0.0.4
 
     steps:
       - name: Checkout repository
