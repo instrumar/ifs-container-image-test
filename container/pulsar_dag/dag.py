@@ -10,7 +10,7 @@ output_topic = 'persistent://unifiyadkinville/ifs/output'
 client = pulsar.Client(pulsar_service_url)
 
 # Create producers and consumers for the input and output topics
-consumer = client.subscribe(input_topic, subscription_name='subscribe_1', consumer_type=pulsar.ConsumerType.Exclusive)
+consumer = client.subscribe(input_topic, subscription_name='subscribe_2', consumer_type=pulsar.ConsumerType.Exclusive)
 producer = client.create_producer(output_topic)
 
 last_msg_id = None
