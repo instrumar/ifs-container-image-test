@@ -19,9 +19,13 @@ while True:
     try:
         # If we've received messages before, start consuming from the last message ID
         if last_msg_id:
+            print("consuming messages based on last message id")
             msg = consumer.receive(start_message_id=last_msg_id, timeout_millis=5000)
         else:
+            print("consuming messages without last message id")
             msg = consumer.receive(timeout_millis=5000)
+
+        print(msg)
 
         payload = msg.data()
         producer.send(payload)
