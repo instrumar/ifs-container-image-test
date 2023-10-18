@@ -18,7 +18,7 @@ RUN apt-get install -y libssl-dev
 
 RUN apt-get install -y libffi-dev 
 
-RUN apt-get update && apt-get install -y python-dev
+RUN apt-get update && apt-get install -y python3
 
 
 # Grant jovyan password-less sudo for specific cron commands
