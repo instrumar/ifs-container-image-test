@@ -18,8 +18,6 @@ RUN apt-get install -y libssl-dev
 
 RUN apt-get install -y libffi-dev 
 
-RUN apt-get update && apt-get install -y python3
-
 
 # Grant jovyan password-less sudo for specific cron commands
 RUN echo "$NB_USER ALL=(ALL) NOPASSWD: /usr/sbin/service cron start" >> /etc/sudoers.d/jovyan && \
