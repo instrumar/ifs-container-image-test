@@ -9,8 +9,10 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     libatlas-base-dev gfortran gcc python3-dev libpq-dev openssh-client cron && \
     apt-get clean && \
-    apt-get install -y build-essential libssl-dev libffi-dev python-dev && \
     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+    apt-get install -y build-essential libssl-dev libffi-dev python-dev 
 
 # Grant jovyan password-less sudo for specific cron commands
 RUN echo "$NB_USER ALL=(ALL) NOPASSWD: /usr/sbin/service cron start" >> /etc/sudoers.d/jovyan && \
