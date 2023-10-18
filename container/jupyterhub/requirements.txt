@@ -18,4 +18,4 @@ apscheduler
 paramiko
 pulsar-client
 avro-python3
-'pulsar-client[avro]'
+pulsar-client[all]==2.10.2
