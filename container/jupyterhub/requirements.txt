@@ -18,3 +18,4 @@ apscheduler
 paramiko
 pulsar-client
 avro-python3
+'pulsar-client[avro]'
