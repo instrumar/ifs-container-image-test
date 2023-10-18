@@ -17,4 +17,4 @@ python-crontab
 apscheduler
 paramiko
 avro-python3
-pulsar-client[all]==2.10.2
+pulsar-client[all]==3.1.0
