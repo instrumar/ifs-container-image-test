@@ -16,6 +16,5 @@ trino==0.326.0
 python-crontab
 apscheduler
 paramiko
-pulsar-client
 avro-python3
 pulsar-client[all]==2.10.2
