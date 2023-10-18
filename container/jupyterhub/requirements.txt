@@ -17,3 +17,4 @@ python-crontab
 apscheduler
 paramiko
 pulsar-client
+avro-python3
