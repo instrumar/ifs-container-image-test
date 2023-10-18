@@ -17,3 +17,5 @@ python-crontab
 apscheduler
 paramiko
 pulsar-client[all]==3.3.0
+minio
+iceberg
