@@ -18,5 +18,9 @@ apscheduler
 paramiko
 boto3
 pulsar-client[all]==3.3.0
-pyiceberg[aws]
+pyiceberg[aws,s3fs,hive]
+minio
+hive-metastore
+pyarrow
+snappy
 
