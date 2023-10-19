@@ -18,7 +18,7 @@ RUN apt-get install -y libssl-dev
 
 RUN apt-get install -y libffi-dev 
 
-RUN apt-get install git-all
+RUN apt-get install -y git-all
 
 
 # Grant jovyan password-less sudo for specific cron commands
