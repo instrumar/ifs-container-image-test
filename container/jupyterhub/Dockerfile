@@ -33,6 +33,14 @@ USER $NB_UID
 COPY ./requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
 
+RUN git clone https://github.com/apache/iceberg.git
+RUN cd iceberg/python
+RUN pip install -e .
+
+RUN git clone https://github.com/minio/minio-py
+RUN cd minio-py
+RUN python setup.py install
+
 # Copy the assets folder
 COPY ./assets /home/jovyan/assets
 USER root
