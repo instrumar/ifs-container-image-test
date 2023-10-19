@@ -18,8 +18,8 @@ apscheduler
 paramiko
 boto3
 pulsar-client[all]==3.3.0
+pyspark==3.2.0 
 PyHive==0.6.4 
-apache-iceberg==0.12.0 
-minio==7.1.0
+boto3==1.20.23
 
 
