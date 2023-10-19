@@ -39,11 +39,11 @@
 
     <property>
         <name>fs.s3a.access.key</name>
-        <value>0eG7zMTUx33i43laCoh6</value>
+        <value>4KEibdIFnY5ABjwPTkfC</value>
     </property>
     <property>
         <name>fs.s3a.secret.key</name>
-        <value>rqzRbNQhtb2GNMPEkVE7rz2Z7q7pD8ziNKIgdfsq</value>
+        <value>ufwRNY8PfSX4K7UT1YemZID25kgrORDmQflNyEkx</value>
     </property>
     <property>
         <name>fs.s3a.endpoint</name>
