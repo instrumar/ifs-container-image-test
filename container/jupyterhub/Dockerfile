@@ -36,7 +36,7 @@ COPY ./requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
 
 RUN git clone https://github.com/apache/iceberg.git
-RUN cd iceberg/python
+WORKDIR /iceberg/python
 RUN pip install -e .
 
 RUN git clone https://github.com/minio/minio-py
