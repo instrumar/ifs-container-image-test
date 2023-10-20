@@ -8,7 +8,7 @@ USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     libatlas-base-dev gfortran gcc python3-dev libpq-dev openssh-client cron \
-    build-essential libssl-dev libffi-dev git-all openjdk-11-jdk-headless && \
+    build-essential libssl-dev libffi-dev git-all openjdk-11-jdk-headless unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
