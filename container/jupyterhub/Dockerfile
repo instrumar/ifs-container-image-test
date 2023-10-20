@@ -12,11 +12,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip
-RUN unzip ijava-1.3.0.zip
-RUN python3 install.py --sys-prefix
-RUN rm -rf ijava-1.3.0.zip
-
 # Grant jovyan password-less sudo for specific cron commands
 RUN echo "$NB_USER ALL=(ALL) NOPASSWD: /usr/sbin/service cron start" >> /etc/sudoers.d/jovyan && \
     echo "$NB_USER ALL=(ALL) NOPASSWD: /usr/sbin/service cron stop" >> /etc/sudoers.d/jovyan && \
