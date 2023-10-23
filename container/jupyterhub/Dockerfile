@@ -18,6 +18,12 @@ RUN echo "$NB_USER ALL=(ALL) NOPASSWD: /usr/sbin/service cron start" >> /etc/sud
     echo "$NB_USER ALL=(ALL) NOPASSWD: /usr/sbin/service cron restart" >> /etc/sudoers.d/jovyan && \
     chmod 0440 /etc/sudoers.d/jovyan
 
+# Install Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 # Switch back to jovyan (default user) and install Python packages.
 USER $NB_UID
 
