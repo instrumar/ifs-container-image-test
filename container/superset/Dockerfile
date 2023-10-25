@@ -7,6 +7,7 @@ RUN pip install trino
 
 RUN rm superset/static/assets/images/superset.png
 RUN rm superset/static/assets/images/superset-logo-horiz.png
+RUN rm superset/static/assets/images/favicon.png
 
 # Switching back to using the `superset` user
 USER superset
