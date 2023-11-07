@@ -9,6 +9,10 @@ RUN rm superset/static/assets/images/superset.png
 RUN rm superset/static/assets/images/superset-logo-horiz.png
 RUN rm superset/static/assets/images/favicon.png
 
+# Directly update the superset config
+RUN sed -i "s/\"GENERIC_CHART_AXES\": True,/\"GENERIC_CHART_AXES\": True,  # deprecated/g" /app/superset/config.py && \
+    sed -i "s/\"ENABLE_TEMPLATE_PROCESSING\": True,/\"ENABLE_TEMPLATE_PROCESSING\": False,/g" /app/superset/config.py
+
 # Switching back to using the `superset` user
 USER superset
 
