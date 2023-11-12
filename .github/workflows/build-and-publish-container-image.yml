@@ -17,7 +17,7 @@ jobs:
           - name: pulsar
             tag: 0.31.27
           - name: superset
-            tag: 0.301.5
+            tag: 0.301.6
           # - name: trino
           #   tag: 0.2.368
           - name: hive_metastore
