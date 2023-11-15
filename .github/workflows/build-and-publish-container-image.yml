@@ -22,8 +22,10 @@ jobs:
           #   tag: 0.2.368
           - name: hive_metastore
             tag: 0.0.18
-          - name: pulsar_dag
-            tag: 0.0.7
+          # - name: pulsar_dag
+          #   tag: 0.0.1
+          - name: airflow
+            tag: 0.1.273
 
     steps:
       - name: Checkout repository
