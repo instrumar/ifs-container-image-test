@@ -27,7 +27,7 @@ jobs:
           - name: airflow
             tag: 0.4.273
           - name: postgresql
-            tag: 0.155.1
+            tag: 0.155.2
 
     steps:
       - name: Checkout repository
