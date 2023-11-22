@@ -1,5 +1,5 @@
 # Use the official PostgreSQL image as a base
-FROM postgres:15.4.0-debian-11-r10
+FROM bitnami/postgresql:15.4.0-debian-11-r10
 
 # Set environment variables if necessary
 # ENV POSTGRES_PASSWORD=yourpassword
