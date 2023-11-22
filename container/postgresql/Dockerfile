@@ -6,17 +6,14 @@ FROM bitnami/postgresql:15.4.0-debian-11-r10
 # ENV POSTGRES_USER=youruser
 # ENV POSTGRES_DB=yourdb
 
+USER root
 # Update packages and install pgagent
 RUN apt-get update && apt-get install -y \
     postgresql-contrib \
     pgagent
 
+USER 1001
 # Run any additional commands if necessary
 # RUN some-additional-command
 
-# Expose the PostgreSQL port
-EXPOSE 5432
 
-# Set the default command to run when starting the container
-# This command will start PostgreSQL and pgAgent
-CMD ["postgres"]
