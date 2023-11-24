@@ -13,7 +13,7 @@ jobs:
       matrix:
         container:
           - name: jupyterhub
-            tag: 0.3.17
+            tag: 0.3.18
           - name: pulsar
             tag: 0.31.27
           - name: superset
