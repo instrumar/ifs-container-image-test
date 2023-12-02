@@ -28,5 +28,6 @@ ipywidgets==8.1.1
 SQLAlchemy-Utils==0.41.1
 pyarrow==14.0.1
 fastparquet==2023.10.1
+sqlalchemy-trino==0.5.0
 
 
