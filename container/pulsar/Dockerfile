@@ -17,5 +17,5 @@ FROM apachepulsar/pulsar-all:3.1.1
 COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
 
 
-# Continue with the rest of your Dockerfile...
-COPY ./iceberg.json /pulsar/connectors/iceberg.json
+# # Continue with the rest of your Dockerfile...
+# COPY ./iceberg.json /pulsar/connectors/iceberg.json
