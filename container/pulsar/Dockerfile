@@ -15,7 +15,7 @@
 # Use the Pulsar image
 FROM apachepulsar/pulsar-all:3.1.1
 # COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
-pip install requests
+RUN pip install requests
 
 
 # # Continue with the rest of your Dockerfile...
