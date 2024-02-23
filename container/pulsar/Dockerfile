@@ -15,13 +15,14 @@
 # Use the Pulsar image
 FROM apachepulsar/pulsar-all:3.1.1
 # COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
+# Switch to root user to install packages
+USER root
 
 # Install Python and pip
 RUN apt-get update && apt-get install -y python3-pip
 
 # Install Python packages
 RUN pip install requests
-
 
 # # Continue with the rest of your Dockerfile...
 # COPY ./iceberg.json /pulsar/connectors/iceberg.json
