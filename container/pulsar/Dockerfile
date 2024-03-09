@@ -13,7 +13,7 @@
 # ADD https://github.com/streamnative/kop/releases/download/v3.1.1.1/pulsar-protocol-handler-kafka-3.1.1.1.nar /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar
 
 # Use the Pulsar image
-FROM apachepulsar/pulsar-all:3.1.1
+FROM apachepulsar/pulsar-all:3.2.1
 # COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
 # Switch to root user to install packages
 USER root
