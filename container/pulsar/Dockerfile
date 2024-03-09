@@ -20,17 +20,22 @@ RUN apt-get update && apt-get install -y \
     libncurses5-dev \
     libncursesw5-dev \
     xz-utils \
-    tk-dev
+    tk-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Download Python 3.11 and extract it
+# Download Python 3.11, extract, configure, make, and install
 RUN curl -O https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tar.xz \
-    && tar -xf Python-3.11.0.tar.xz
-
-# Configure & install Python 3.11
-RUN cd Python-3.11.0 \
+    && tar -xf Python-3.11.0.tar.xz \
+    && cd Python-3.11.0 \
     && ./configure --enable-optimizations \
     && make -j $(nproc) \
     && make altinstall
+
+# Update the symbolic links for Python3 and Pip3 to point to Python 3.11
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1 \
+    && update-alternatives --install /usr/bin/pip3 pip3 /usr/local/bin/pip3.11 1 \
+    && update-alternatives --set python3 /usr/local/bin/python3.11 \
+    && update-alternatives --set pip3 /usr/local/bin/pip3.11
 
 # Install pip for Python 3.11
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
@@ -42,4 +47,3 @@ RUN python3.11 -m pip install requests
 # ADD https://github.com/streamnative/kop/releases/download/v3.1.1.1/pulsar-protocol-handler-kafka-3.1.1.1.nar /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar
 # COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
 # COPY ./iceberg.json /pulsar/connectors/iceberg.json
-
