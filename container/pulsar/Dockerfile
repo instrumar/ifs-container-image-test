@@ -1,28 +1,45 @@
-# # Use a simple base for downloading and setting permissions
-# FROM alpine as downloader
-# # ADD https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v3.1.0.2/pulsar-io-lakehouse-3.1.0.2-cloud.nar /tmp/pulsar-io-lakehouse-3.1.0.2-cloud.nar
-# # ADD https://github.com/streamnative/pulsar-io-lakehouse/releases/download/v3.1.0.2/pulsar-io-lakehouse-3.1.0.2.nar /tmp/pulsar-io-lakehouse-3.1.0.2.nar
-# # ADD https://repo1.maven.org/maven2/org/apache/hive/hive-metastore/3.1.2/hive-metastore-3.1.2.jar /tmp/hive-metastore-3.1.2.jar
-# # ADD https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.13.2/iceberg-hive-runtime-0.13.2.jar /tmp/iceberg-hive-runtime-0.13.2.jar
-
-# # RUN chmod 644 /tmp/pulsar-io-lakehouse-3.1.0.2-cloud.nar
-# # RUN chmod 644 /tmp/pulsar-io-lakehouse-3.1.0.2.nar
-# # RUN chmod 644 /tmp/hive-metastore-3.1.2.jar
-# # RUN chmod 644 /tmp/iceberg-hive-runtime-0.13.2.jar
-
-# ADD https://github.com/streamnative/kop/releases/download/v3.1.1.1/pulsar-protocol-handler-kafka-3.1.1.1.nar /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar
-
 # Use the Pulsar image
 FROM apachepulsar/pulsar-all:3.2.1
-# COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
+
 # Switch to root user to install packages
 USER root
 
-# Install Python and pip
-RUN apt-get update && apt-get install -y python3-pip
+# Install required packages for building Python
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    zlib1g-dev \
+    liblzma-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    wget \
+    curl \
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev
 
-# Install Python packages
-RUN pip install requests
+# Download Python 3.11 and extract it
+RUN curl -O https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tar.xz \
+    && tar -xf Python-3.11.0.tar.xz
 
-# # Continue with the rest of your Dockerfile...
+# Configure & install Python 3.11
+RUN cd Python-3.11.0 \
+    && ./configure --enable-optimizations \
+    && make -j $(nproc) \
+    && make altinstall
+
+# Install pip for Python 3.11
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
+
+# Install Python packages using the newly installed Python 3.11
+RUN python3.11 -m pip install requests
+
+# Continue with the rest of your Dockerfile...
+# ADD https://github.com/streamnative/kop/releases/download/v3.1.1.1/pulsar-protocol-handler-kafka-3.1.1.1.nar /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar
+# COPY --from=downloader /tmp/pulsar-protocol-handler-kafka-3.1.1.1.nar /protocols/pulsar-protocol-handler-kafka-3.1.1.1.nar
 # COPY ./iceberg.json /pulsar/connectors/iceberg.json
+
