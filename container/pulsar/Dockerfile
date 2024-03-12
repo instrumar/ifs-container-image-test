@@ -1,5 +1,5 @@
 # Use the Pulsar image
-FROM apachepulsar/pulsar-all:3.2.1
+FROM apachepulsar/pulsar-all:3.1.1
 
 # Switch to root user to install packages
 USER root
