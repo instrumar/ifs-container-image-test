@@ -14,6 +14,8 @@ jobs:
         container:
           - name: risingwave_udf_median
             tag: 0.0.13
+          - name: risingwave_udf_chisquared
+            tag: 0.0.1
           # - name: jupyterhub
           #   tag: 0.3.28
           # - name: pulsar
