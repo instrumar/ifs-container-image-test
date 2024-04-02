@@ -13,7 +13,7 @@ jobs:
       matrix:
         container:
           - name: risingwave_udf_median
-            tag: 0.0.6
+            tag: 0.0.7
           # - name: jupyterhub
           #   tag: 0.3.28
           # - name: pulsar
