@@ -12,22 +12,24 @@ jobs:
     strategy:
       matrix:
         container:
-          - name: jupyterhub
-            tag: 0.3.28
-          - name: pulsar
-            tag: 0.311.5
-          - name: superset
-            tag: 0.301.6
-          - name: trino
-            tag: 0.2.368
-          - name: hive_metastore
-            tag: 0.0.19
-          - name: pulsar_dag
+          - name: risingwave_udf_median
             tag: 0.0.1
-          - name: airflow
-            tag: 0.4.273
-          - name: postgresql
-            tag: 0.155.2
+          # - name: jupyterhub
+          #   tag: 0.3.28
+          # - name: pulsar
+          #   tag: 0.311.5
+          # - name: superset
+          #   tag: 0.301.6
+          # - name: trino
+          #   tag: 0.2.368
+          # - name: hive_metastore
+          #   tag: 0.0.19
+          # - name: pulsar_dag
+          #   tag: 0.0.1
+          # - name: airflow
+          #   tag: 0.4.273
+          # - name: postgresql
+          #   tag: 0.155.2
 
     steps:
       - name: Checkout repository
