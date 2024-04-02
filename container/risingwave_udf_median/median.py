@@ -1,14 +1,15 @@
 # Import components from the risingwave.udf module
 import statistics
 
-from risingwave.udf import udf, UdfServer
+from risingwave.udf import udtf, UdfServer
 import struct
 import socket
 
 
 # Define a table function
-@udf(input_types='double precision', result_type='double precision')
+@udtf(input_types='double precision', result_type='double precision')
 def median(n):
+    print(n)
     return statistics.median(n)
         
 
