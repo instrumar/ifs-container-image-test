@@ -15,4 +15,5 @@ def median(n):
 if __name__ == '__main__':
     server = UdfServer(location="0.0.0.0:8815") # You can use any available port in your system. Here we use port 8815.
     server.add_function(median)
+    server.serve()
 
