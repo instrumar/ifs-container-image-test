@@ -7,7 +7,7 @@ import socket
 
 
 # Define a table function
-@udf(input_types='double', result_type='double')
+@udf(input_types='double precision', result_type='double precision')
 def median(n):
     return statistics.median(n)
         
