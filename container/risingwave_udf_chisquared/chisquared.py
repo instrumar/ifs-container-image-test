@@ -9,7 +9,7 @@ import socket
 @udf(input_types=['integer[]', 'numeric', 'numeric'], result_type='numeric')
 def chisquared_numeric(data, data_mean, data_std):
     data_array = np.array(data)
-    if data_array.size != 0 or data_mean == None or data_std == None:
+    if data_array.size != 0 or data_mean == None or data_std == None or data_mean == 0 or data_std == 0:
         return 0
     else:
         return (((data_array - data_mean)/data_std)**2).sum()/data_array.size
@@ -18,7 +18,7 @@ def chisquared_numeric(data, data_mean, data_std):
 @udf(input_types=['real[]', 'double precision', 'double precision'], result_type='double precision')
 def chisquared_double(data, data_mean, data_std):
     data_array = np.array(data)
-    if data_array.size != 0 or data_mean == None or data_std == None:
+    if data_array.size != 0 or data_mean == None or data_std == None or data_mean == 0 or data_std == 0:
         return 0
     else:
         return (((data_array - data_mean)/data_std)**2).sum()/data_array.size
