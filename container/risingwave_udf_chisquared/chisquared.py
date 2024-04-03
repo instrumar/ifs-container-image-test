@@ -14,6 +14,7 @@ def chisquared_numeric(data, data_mean, data_std):
     print(len(data))
     data_array = np.array(data)
     print(len(data_array), "sssss", data_array.size)
+    print((((data_array - data_mean)/data_std)**2).sum())
     return (((data_array - data_mean)/data_std)**2).sum()/data_array.size
 
 # Define a table function
