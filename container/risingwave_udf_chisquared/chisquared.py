@@ -13,7 +13,7 @@ def chisquared_numeric(data, data_mean, data_std):
     return (((data - data_mean)/data_std)**2).sum()/len(data)
 
 # Define a table function
-@udf(input_types=['integer[]', 'double precision', 'double precision'], result_type='double precision')
+@udf(input_types=['real[]', 'double precision', 'double precision'], result_type='double precision')
 def chisquared_double(data, data_mean, data_std):
     return (((data - data_mean)/data_std)**2).sum()/len(data)
 
