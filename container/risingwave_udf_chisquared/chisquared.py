@@ -25,3 +25,13 @@ def chisquared_double(data, data_mean, data_std):
     except (TypeError, InvalidOperation) as e:
         # Handle unexpected data types or operations
         return Decimal(0.0)
+
+
+        
+
+if __name__ == '__main__':
+    server = UdfServer(location="0.0.0.0:8815") # You can use any available port in your system. Here we use port 8815.
+    server.add_function(chisquared_double)
+    server.add_function(chisquared_numeric)
+    server.serve()
+

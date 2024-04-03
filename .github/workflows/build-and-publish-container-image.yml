@@ -15,7 +15,7 @@ jobs:
           - name: risingwave_udf_median
             tag: 0.0.13
           - name: risingwave_udf_chisquared
-            tag: 0.0.23        # - name: jupyterhub
+            tag: 0.0.24        # - name: jupyterhub
           #   tag: 0.3.28
           # - name: pulsar
           #   tag: 0.311.5
