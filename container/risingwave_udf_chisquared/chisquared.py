@@ -9,7 +9,8 @@ import socket
 @udf(input_types=['integer[]', 'numeric', 'numeric'], result_type='numeric')
 def chisquared_numeric(data, data_mean, data_std):
     data_array = np.array(data)
-    return (((data_array - data_mean)/data_std)**2).sum()/len(data)
+    print(len(data_array))
+    return (((data_array - data_mean)/data_std)**2).sum()/len(data_array)
 
 # Define a table function
 @udf(input_types=['real[]', 'double precision', 'double precision'], result_type='double precision')
