@@ -11,10 +11,6 @@ import socket
 def chisquared_numeric(data, data_mean, data_std):
     data_array = np.array(data)
     if data_array.size == 0 or data_mean == None or data_std == None or data_mean == 0 or data_std == 0:
-        print(data_array.size)
-        print(data_array)
-        print(data_mean)
-        print(data_std)
         return Decimal(0.0)
     else:
         return (((data_array - data_mean)/data_std)**2).sum()/data_array.size
