@@ -16,7 +16,7 @@ def chisquared_numeric(data, data_mean, data_std):
         return (((data_array - data_mean)/data_std)**2).sum()/data_array.size
 
 # Define a table function
-@udf(input_types=['real[]', 'double precision', 'double precision'], result_type='nunmeric')
+@udf(input_types=['real[]', 'double precision', 'double precision'], result_type='numeric')
 def chisquared_double(data, data_mean, data_std):
     data_array = np.array(data)
     if data_array.size == 0 or data_mean == None or data_std == None or data_mean == 0 or data_std == 0:
