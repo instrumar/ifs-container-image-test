@@ -8,7 +8,6 @@ import socket
 # Define a table function
 @udf(input_types=['integer[]', 'numeric', 'numeric'], result_type='numeric')
 def chisquared_numeric(data, data_mean, data_std):
-    print(data)
     print(data_mean)
     print(data_std)
     print(len(data))
