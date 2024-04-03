@@ -8,11 +8,10 @@ import socket
 # Define a table function
 @udf(input_types=['integer[]', 'numeric', 'numeric'], result_type='numeric')
 def chisquared_numeric(data, data_mean, data_std):
-    print(data)
+    print(len(data))
     data_array = np.array(data)
-    print(data_array)
-    print(len(data_array))
-    return (((data_array - data_mean)/data_std)**2).sum()/len(data_array)
+    print(len(data_array), "sssss", data_array.size)
+    return (((data_array - data_mean)/data_std)**2).sum()/data_array.size
 
 # Define a table function
 @udf(input_types=['real[]', 'double precision', 'double precision'], result_type='double precision')
